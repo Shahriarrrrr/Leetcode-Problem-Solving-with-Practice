@@ -25,3 +25,5 @@ int main(){
     cout << linearSearch(target, num , sz);
     
 }
+
+//38.59
