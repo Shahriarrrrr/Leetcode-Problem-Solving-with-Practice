@@ -3,28 +3,48 @@
 using namespace std;
 
 
-//O(n)
+
+// O(n) + space complexity
 vector <int> ProductCalculate(vector <int> &nums){
     int n = nums.size();
-    vector <int> prefix(n,1); 
-    vector <int> suffix(n,1); 
+    int suffix = 1;
     vector <int> ans(n,1);
     for(int i = 1; i < n ; i++){
-        prefix[i] = nums[i-1] * prefix[i-1];
+        ans[i] = ans[i-1] * nums[i-1];
     }
     
     for(int j = n-2; j >= 0 ; j--){
-        suffix[j] = nums[j+1] * suffix[j+1];
+        suffix *= nums[j+1];
+        ans[j] *= suffix;
         
-    }
-    for(int i = 0; i < n ; i++){
-        ans[i] = prefix[i] * suffix[i];
     }
 
 
 
     return ans;
 }
+//O(n)
+// vector <int> ProductCalculate(vector <int> &nums){
+//     int n = nums.size();
+//     vector <int> prefix(n,1); 
+//     vector <int> suffix(n,1); 
+//     vector <int> ans(n,1);
+//     for(int i = 1; i < n ; i++){
+//         prefix[i] = nums[i-1] * prefix[i-1];
+//     }
+    
+//     for(int j = n-2; j >= 0 ; j--){
+//         suffix[j] = nums[j+1] * suffix[j+1];
+        
+//     }
+//     for(int i = 0; i < n ; i++){
+//         ans[i] = prefix[i] * suffix[i];
+//     }
+
+
+
+//     return ans;
+// }
 //BruteForce
 // vector <int> ProductCalculate(vector <int> &nums){
 //     int n = nums.size();
