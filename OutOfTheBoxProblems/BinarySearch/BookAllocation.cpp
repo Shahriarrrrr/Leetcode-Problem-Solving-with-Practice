@@ -84,8 +84,8 @@ int allocatebooks(vector <int> &arr , int n , int m){
 
 
 int main(){
-    vector <int> arr = {2,1,3,4};
-    int n  = 4 ;
+    vector <int> arr = {7,2,5,10,8};
+    int n  = 5 ;
     int m = 2;
 
     cout << allocatebooks(arr, n, m) << endl;
